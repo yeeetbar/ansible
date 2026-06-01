@@ -1,0 +1,45 @@
+---
+
+- hosts: all
+  become: true
+  pre_tasks:
+
+  - name: install updates (CentOS)
+    tags: always
+    dnf:
+      update_cache: yes
+    change_when: false
+    when: ansible_distribution == "CentOS"
+
+  - name: install updates (Ubutntu)
+    tags: always
+    dnf:
+      update_cache: yes
+    change_when: false
+    when: ansible_distribution == "Ubuntu"
+
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: create user yeeet
+    tags: always
+    user:
+      name: yeeet
+      groups: bar
+
+  - name: add ssh key to yeeet
+    tags: always
+    authorized_key:
+      user: yeeet
+      key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDAiX3mNQfr0stG6APHMC/6VuG/W1rBcH3DQqu2Irt0r ansible"
+  
+  - name: add sudo to user
+    tags: always
+    copy:  
+      dest: /etc/sudoers.d/yeeet
+      content: "yeeet ALL=(ALL) NOPASSWD: ALL"
+      owner: root
+      group: root
+      mode: 0440
