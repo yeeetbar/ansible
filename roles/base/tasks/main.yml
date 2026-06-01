@@ -1,10 +1,10 @@
 - name: install apache2
   dnf:
-    name: httpd
+    name: "{{ apache_package_name }}"
 
 - name: start httpd apache
   service: 
-    name: httpd
+    name: "{{ apache_service }}"
     state: started
     enabled: yes 
 

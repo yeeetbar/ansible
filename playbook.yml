@@ -5,16 +5,6 @@
   roles:
     - base
   tasks:
-
-  - name: install apache2
-    dnf:
-      name: httpd
-
-  - name: start httpd apache
-    service: 
-      name: httpd
-      state: started
-
   - name: add ssh key to yeeet
     tags: always
     authorized_key:
