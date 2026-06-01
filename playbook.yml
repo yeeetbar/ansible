@@ -2,6 +2,8 @@
 
 - hosts: all
   become: true
+  roles:
+    - base
   tasks:
 
   - name: install apache2

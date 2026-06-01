@@ -1,0 +1,8 @@
+- name: install apache2
+  dnf:
+    name: httpd
+
+- name: start httpd apache
+  service: 
+    name: httpd
+    state: started 
