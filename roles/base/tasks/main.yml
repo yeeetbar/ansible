@@ -5,4 +5,15 @@
 - name: start httpd apache
   service: 
     name: httpd
-    state: started 
+    state: started
+    enabled: yes 
+
+- name: copy html file 
+  copy: 
+    src: site.html
+    dest: /var/www/html/index.html
+    owner: root
+    group: root
+    mode: 0644
+
+
