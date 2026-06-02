@@ -9,5 +9,5 @@
     tags: always
     authorized_key:
       user: yeeet
-      key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDAiX3mNQfr0stG6APHMC/6VuG/W1rBcH3DQqu2Irt0r ansible"
+      key: "{{ lookup('file', '~/.ssh/ansible.pub') }}"
   

@@ -1,3 +1,5 @@
 apache_package_name: httpd
 apache_service: httpd
+ssh_users: "bar yeeet"
+ssh_template_file: sshd_config.j2
 
